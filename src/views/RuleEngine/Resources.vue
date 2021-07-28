@@ -25,9 +25,9 @@
 
       <el-table-column prop="id" min-width="80px" :label="$t('RuleEngine.resourceID')">
         <template slot-scope="{ row }">
-          <router-link :to="{ name: 'resources-detail', params: { resId: row.id } }">{{
-            row.id
-          }}</router-link>
+          <router-link :to="{ name: 'resources-detail', params: { resId: row.id } }">
+            {{ row.id }}
+          </router-link>
         </template>
       </el-table-column>
       <!-- 资源类型 -->
@@ -69,7 +69,7 @@
     </el-table>
 
     <resource-dialog
-      :editItem="resourceToEdit"
+      :edit-item="resourceToEdit"
       :oper="oper"
       :visible.sync="dialogVisible"
       @created="loadData"

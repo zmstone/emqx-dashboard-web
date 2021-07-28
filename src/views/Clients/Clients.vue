@@ -139,8 +139,8 @@
         v-if="count > 0"
         layout="total, sizes, prev, pager, next"
         :page-sizes="[20, 50, 100, 500]"
-        :page-size.sync="params._limit"
-        :current-page.sync="params._page"
+        :page-size.sync="params.limit"
+        :current-page.sync="params.page"
         :total="count"
         @size-change="handleSizeChange"
         @current-change="handleCurrentPageChange"
@@ -149,7 +149,7 @@
       <custom-pagination
         v-if="count === -1 && tableData.length"
         :hasnext="hasnext"
-        :page="params._page"
+        :page="params.page"
         @prevClick="handlePrevClick"
         @nextClick="handleNextClick"
       >
@@ -176,8 +176,8 @@ export default {
       tableData: [],
       hasnext: false,
       params: {
-        _page: 1,
-        _limit: 20,
+        page: 1,
+        limit: 20,
       },
       count: 0,
       // filterOptions: {
@@ -327,10 +327,10 @@ export default {
       this.loadNodeClients()
     },
     handlePrevClick() {
-      if (this.params._page === 1) {
+      if (this.params.page === 1) {
         return
       }
-      this.params._page -= 1
+      this.params.page -= 1
       const params = this.genQueryParams(this.fuzzyParams)
       this.loadNodeClients(false, params)
     },
@@ -338,7 +338,7 @@ export default {
       if (!this.hasnext) {
         return
       }
-      this.params._page += 1
+      this.params.page += 1
       const params = this.genQueryParams(this.fuzzyParams)
       this.loadNodeClients(false, params)
     },
@@ -350,17 +350,17 @@ export default {
     },
     async loadNodeClients(reload, params = {}) {
       if (reload) {
-        this.params._page = 1
+        this.params.page = 1
       }
-      const data = await listNodeClients(this.nodeName, {
+      const respData = await listNodeClients(this.nodeName, {
         ...this.params,
         ...params,
       })
       const {
-        items = [],
+        data = [],
         meta: { count = 0, hasnext = false },
-      } = data
-      this.tableData = items
+      } = respData
+      this.tableData = data
       this.count = count
       this.hasnext = hasnext
     },

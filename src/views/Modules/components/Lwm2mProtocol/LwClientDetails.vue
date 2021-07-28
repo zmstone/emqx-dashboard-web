@@ -32,7 +32,9 @@
                 <el-col :span="8">
                   <span class="main-black row-title">{{ $t('Schemas.name') }}</span>
                 </el-col>
-                <el-col :span="2"><span class="main-black row-title">Path</span></el-col>
+                <el-col :span="2">
+                  <span class="main-black row-title">Path</span>
+                </el-col>
                 <el-col v-if="resourcesOperations[item]" :span="2">
                   <span class="main-black row-title">{{ $t('Modules.dataType') }}</span>
                 </el-col>
@@ -210,8 +212,8 @@
                     <el-input v-model="record[item.path]"></el-input>
                   </el-col>
                   <el-col :span="8">
-                    <el-radio v-model="record.encoding[item.path]" label="hex">Hex</el-radio>
-                    <el-radio v-model="record.encoding[item.path]" label="plain">Plain</el-radio>
+                    <el-radio v-model="record.encoding[item.path]" label="hex"> Hex </el-radio>
+                    <el-radio v-model="record.encoding[item.path]" label="plain"> Plain </el-radio>
                   </el-col>
                 </template>
               </el-form-item>
@@ -221,7 +223,9 @@
       </el-form>
 
       <div slot="footer" class="dialog-align-footer">
-        <el-button plain size="small" @click="handleClose">{{ $t('Base.cancel') }}</el-button>
+        <el-button plain size="small" @click="handleClose">
+          {{ $t('Base.cancel') }}
+        </el-button>
         <el-button type="primary" size="small" @click="handleWrite">
           {{ $t('Base.confirm') }}
         </el-button>
@@ -241,9 +245,9 @@
         size="small"
       ></emq-select>
       <div slot="footer" class="dialog-align-footer">
-        <el-button plain size="small" @click="handleCancelCreate">{{
-          $t('Base.cancel')
-        }}</el-button>
+        <el-button plain size="small" @click="handleCancelCreate">
+          {{ $t('Base.cancel') }}
+        </el-button>
         <el-button type="primary" size="small" @click="handleCreate" :disabled="!createBasePath">
           {{ $t('Base.confirm') }}
         </el-button>

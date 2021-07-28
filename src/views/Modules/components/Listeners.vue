@@ -3,8 +3,12 @@
     <div v-for="(item, index) in showItemList" :key="index" class="listener-item">
       <div class="listener-item-head">
         <div class="listener-item-type" v-for="(key, i) in Object.keys(item)" :key="i">
-          <div class="title">{{ $t(`Modules.${key}`) }}</div>
-          <div class="desc">{{ item[key] }}</div>
+          <div class="title">
+            {{ $t(`Modules.${key}`) }}
+          </div>
+          <div class="desc">
+            {{ item[key] }}
+          </div>
         </div>
         <div class="listener-item-btn">
           <span class="btn" @click="editListener(index)">

@@ -253,7 +253,8 @@ export default {
       }
       this.record = await loadClientDetail(this.clientId)
       const { node } = this.record
-      this.subscriptions = await loadSubscriptions(node, this.clientId)
+      // TODO await loadSubscriptions(node, this.clientId)
+      this.subscriptions = this.record.subscriptions
     },
     handleUnSubscription(row) {
       const title = this.$t('Clients.unsubscribeTitle')

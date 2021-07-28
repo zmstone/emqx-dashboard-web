@@ -30,14 +30,14 @@
       <el-table-column prop="created_at" :label="$t('Backup.createAt')" sortable></el-table-column>
       <el-table-column :label="$t('Base.operation')">
         <template slot-scope="{ row }">
-          <el-button size="mini" @click="handleDownload(row)"
-            >{{ $t('Backup.download') }}
+          <el-button size="mini" @click="handleDownload(row)">
+            {{ $t('Backup.download') }}
           </el-button>
-          <el-button plain size="mini" @click="handleRestore(row)"
-            >{{ $t('Backup.restore') }}
+          <el-button plain size="mini" @click="handleRestore(row)">
+            {{ $t('Backup.restore') }}
           </el-button>
-          <el-button type="danger" plain size="mini" @click="deleteConfirm(row)"
-            >{{ $t('Base.delete') }}
+          <el-button type="danger" plain size="mini" @click="deleteConfirm(row)">
+            {{ $t('Base.delete') }}
           </el-button>
         </template>
       </el-table-column>

@@ -20,8 +20,9 @@
               name: 'rules-detail',
               params: { ruleId: row.id },
             }"
-            >{{ row.id }}</router-link
           >
+            {{ row.id }}
+          </router-link>
         </template>
       </el-table-column>
       <el-table-column prop="for" sortable :label="$t('RuleEngine.topic')">

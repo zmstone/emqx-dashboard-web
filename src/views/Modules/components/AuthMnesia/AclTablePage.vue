@@ -65,8 +65,8 @@
         background
         layout="total, sizes, prev, pager, next"
         :page-sizes="[10, 50, 100, 500]"
-        :page-size.sync="aclParams._limit"
-        :current-page.sync="aclParams._page"
+        :page-size.sync="aclParams.limit"
+        :current-page.sync="aclParams.page"
         :total="count"
         @size-change="handleSizeChange"
         @current-change="handleCurrentPageChange"
@@ -106,8 +106,8 @@ export default {
         clientid: { required: true, message: this.$t('Clients.pleaseEnter') },
       },
       aclParams: {
-        _limit: 10,
-        _page: 1,
+        limit: 10,
+        page: 1,
       },
       count: 0,
       accessOptions: [
@@ -129,12 +129,12 @@ export default {
   methods: {
     async loadData() {
       this.listLoading = true
-      const data = await loadAcl(this.type, { ...this.aclParams })
+      const respData = await loadAcl(this.type, { ...this.aclParams })
       const {
-        items = [],
+        data = [],
         meta: { count = 0 },
-      } = data
-      this.tableData = items
+      } = respData
+      this.tableData = data
       this.count = count
       this.listLoading = false
     },

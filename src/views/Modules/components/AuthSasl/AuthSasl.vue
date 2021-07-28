@@ -2,7 +2,9 @@
   <div class="auth-sasl">
     <el-card shadow="never" class="emq-list-card">
       <div class="list-header">
-        <div class="title">{{ $t('Modules.enhancedAuth') }}</div>
+        <div class="title">
+          {{ $t('Modules.enhancedAuth') }}
+        </div>
         <el-button type="primary" size="small" @click="showDialog('add')">
           {{ $t('Base.add') }}
         </el-button>
@@ -125,10 +127,12 @@
       </el-row>
 
       <div v-if="oper !== 'view'" slot="footer" class="dialog-align-footer">
-        <el-button plain size="small" @click="handleClose">{{ $t('Base.cancel') }}</el-button>
-        <el-button type="primary" size="small" @click="handleUpdate">{{
-          $t('Base.confirm')
-        }}</el-button>
+        <el-button plain size="small" @click="handleClose">
+          {{ $t('Base.cancel') }}
+        </el-button>
+        <el-button type="primary" size="small" @click="handleUpdate">
+          {{ $t('Base.confirm') }}
+        </el-button>
       </div>
     </el-dialog>
   </div>

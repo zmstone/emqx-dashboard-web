@@ -27,9 +27,8 @@ export function disconnectClient(clientId = '') {
 }
 
 // 获取连接的基础信息
-export async function loadClientDetail(clientId) {
-  const data = await http.get(`/clients/${encodeURIComponent(clientId)}`)
-  return data.length ? data[0] || {} : {}
+export function loadClientDetail(clientId) {
+  return http.get(`/clients/${encodeURIComponent(clientId)}`)
 }
 
 // 搜索单个节点的订阅

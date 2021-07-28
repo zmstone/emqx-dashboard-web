@@ -65,7 +65,9 @@
                 <el-badge :type="item.active ? 'success' : 'danger'" is-dot></el-badge>
                 <span>{{ item.name }}</span>
               </div>
-              <div class="description">{{ item.description }}</div>
+              <div class="description">
+                {{ item.description }}
+              </div>
               <div class="type-version">{{ item.version }} / {{ typeText(item.type) }}</div>
             </div>
 
@@ -95,12 +97,18 @@
             <div class="name">
               {{ item.name }}
             </div>
-            <div class="description">{{ item.description }}</div>
+            <div class="description">
+              {{ item.description }}
+            </div>
           </div>
 
           <div class="content">
-            <div class="type">{{ typeText(item.type) }}</div>
-            <div class="version">{{ item.version }}</div>
+            <div class="type">
+              {{ typeText(item.type) }}
+            </div>
+            <div class="version">
+              {{ item.version }}
+            </div>
           </div>
 
           <div class="state">
@@ -138,9 +146,9 @@
         </el-checkbox>
       </div>
       <div class="tip-button">
-        <el-button type="primary" size="small" @click="moduleTipVisible = false">{{
-          $t('Dashboard.konw')
-        }}</el-button>
+        <el-button type="primary" size="small" @click="moduleTipVisible = false">
+          {{ $t('Dashboard.konw') }}
+        </el-button>
       </div>
     </el-dialog>
   </div>

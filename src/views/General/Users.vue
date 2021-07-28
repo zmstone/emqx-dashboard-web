@@ -9,8 +9,8 @@
       <el-table-column sortable prop="tags" :label="$t('General.remark')"></el-table-column>
       <el-table-column :label="$t('Base.operation')">
         <template slot-scope="{ row }">
-          <el-button plain size="mini" @click="showDialog('edit', row)"
-            >{{ $t('Base.edit') }}
+          <el-button plain size="mini" @click="showDialog('edit', row)">
+            {{ $t('Base.edit') }}
           </el-button>
           <el-button
             :disabled="row.tags === 'administrator' || row.username === 'admin'"
@@ -18,7 +18,8 @@
             size="mini"
             plain
             @click="deleteConfirm(row)"
-            >{{ $t('Base.delete') }}
+          >
+            {{ $t('Base.delete') }}
           </el-button>
         </template>
       </el-table-column>
@@ -60,8 +61,12 @@
       </el-form>
 
       <div slot="footer" class="dialog-align-footer">
-        <el-button plain size="small" @click="closeDialog">{{ $t('Base.cancel') }}</el-button>
-        <el-button type="primary" size="small" @click="save">{{ $t('Base.confirm') }}</el-button>
+        <el-button plain size="small" @click="closeDialog">
+          {{ $t('Base.cancel') }}
+        </el-button>
+        <el-button type="primary" size="small" @click="save">
+          {{ $t('Base.confirm') }}
+        </el-button>
       </div>
     </el-dialog>
   </div>

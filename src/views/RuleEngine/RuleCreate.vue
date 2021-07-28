@@ -74,8 +74,8 @@
                       <!-- </div> -->
                       <div class="payload-type">
                         <el-radio-group v-model="payloadType">
-                          <el-radio label="json">JSON</el-radio>
-                          <el-radio label="plaintext">Plaintext</el-radio>
+                          <el-radio label="json"> JSON </el-radio>
+                          <el-radio label="plaintext"> Plaintext </el-radio>
                         </el-radio-group>
                       </div>
                       <!-- <stretch-height v-model="payloadEditorHeight" class="payload"> </stretch-height> -->

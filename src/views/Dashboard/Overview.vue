@@ -154,7 +154,9 @@
           "
           class="oper"
         >
-          <el-tag type="danger">{{ $t('Dashboard.trialEdition') }}</el-tag>
+          <el-tag type="danger">
+            {{ $t('Dashboard.trialEdition') }}
+          </el-tag>
         </div>
       </div>
     </div>
@@ -169,14 +171,14 @@
         <span v-else v-html="$t('Dashboard.licenseExpiryTip')"></span>
       </div>
       <div v-if="!isLicenseExpiry" class="tip-checkbox">
-        <el-checkbox v-model="noprompt" @change="liceEvaTipShowChange">{{
-          $t('Dashboard.notPromptAgain')
-        }}</el-checkbox>
+        <el-checkbox v-model="noprompt" @change="liceEvaTipShowChange">
+          {{ $t('Dashboard.notPromptAgain') }}
+        </el-checkbox>
       </div>
       <div slot="footer">
-        <el-button type="primary" size="small" @click="licenseTipVisible = false">{{
-          $t('Dashboard.konw')
-        }}</el-button>
+        <el-button type="primary" size="small" @click="licenseTipVisible = false">
+          {{ $t('Dashboard.konw') }}
+        </el-button>
       </div>
     </el-dialog>
   </div>

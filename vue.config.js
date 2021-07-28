@@ -32,7 +32,7 @@ module.exports = {
         changeOrigin: true,
       },
       '/api/v5': {
-        target: 'http://34.219.115.160:8081',
+        target: process.env.HOST_URL || 'http://34.219.115.160:18083',
         changeOrigin: true,
       },
     },

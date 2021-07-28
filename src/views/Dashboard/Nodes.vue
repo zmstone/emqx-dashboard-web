@@ -1,6 +1,8 @@
 <template>
   <div class="nodes app-wrapper">
-    <div class="section-header">{{ tl('nodeData') }}</div>
+    <div class="section-header">
+      {{ tl('nodeData') }}
+    </div>
     <el-table :data="nodes">
       <el-table-column prop="node" :label="tl('nodeName')" sortable> </el-table-column>
       <el-table-column :label="tl('nodeStatus')" sortable>
@@ -46,7 +48,9 @@
       </el-table-column>
       <el-table-column :label="tl('maxFds')" prop="max_fds"></el-table-column>
     </el-table>
-    <div class="section-header">{{ tl('nodeStatis') }}</div>
+    <div class="section-header">
+      {{ tl('nodeStatis') }}
+    </div>
     <el-table :data="stats">
       <el-table-column prop="node" :label="tl('nodeName')"> </el-table-column>
       <el-table-column :label="tl('currentConnection')">

@@ -110,10 +110,12 @@
       </el-form>
 
       <div v-if="accessType !== 'view'" slot="footer" class="dialog-align-footer">
-        <el-button plain size="small" @click="dialogVisible = false">{{
-          $t('Base.cancel')
-        }}</el-button>
-        <el-button type="primary" size="small" @click="save">{{ $t('Base.confirm') }}</el-button>
+        <el-button plain size="small" @click="dialogVisible = false">
+          {{ $t('Base.cancel') }}
+        </el-button>
+        <el-button type="primary" size="small" @click="save">
+          {{ $t('Base.confirm') }}
+        </el-button>
       </div>
     </el-dialog>
   </div>

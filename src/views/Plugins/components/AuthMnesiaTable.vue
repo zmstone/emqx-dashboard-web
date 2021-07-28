@@ -57,8 +57,8 @@
               background
               layout="total, sizes, prev, pager, next"
               :page-sizes="[10, 50, 100, 500]"
-              :page-size.sync="authParams._limit"
-              :current-page.sync="authParams._page"
+              :page-size.sync="authParams.limit"
+              :current-page.sync="authParams.page"
               :total="authCount"
               @size-change="handleAuthSizeChange"
               @current-change="handleAuthCurrentPageChange"
@@ -161,8 +161,8 @@
               background
               layout="total, sizes, prev, pager, next"
               :page-sizes="[10, 50, 100, 500]"
-              :page-size.sync="aclParams._limit"
-              :current-page.sync="aclParams._page"
+              :page-size.sync="aclParams.limit"
+              :current-page.sync="aclParams.page"
               :total="aclCount"
               @size-change="handleACLSizeChange"
               @current-change="handleACLCurrentPageChange"
@@ -249,13 +249,13 @@ export default {
         password: { required: true, message: this.$t('Plugins.pleaseEnter') },
       },
       authParams: {
-        _page: 1,
-        _limit: 10,
+        page: 1,
+        limit: 10,
       },
       authCount: 0,
       aclParams: {
-        _page: 1,
-        _limit: 10,
+        page: 1,
+        limit: 10,
       },
       aclCount: 0,
       allowOptions: [
@@ -279,14 +279,14 @@ export default {
   methods: {
     async loadMnesia(reload) {
       if (reload) {
-        this.authParams._page = 1
+        this.authParams.page = 1
       }
-      const data = await listMnesia({ ...this.authParams })
+      const respData = await listMnesia({ ...this.authParams })
       const {
-        items = [],
+        data = [],
         meta: { count = 0 },
-      } = data
-      this.authTableData = items
+      } = respData
+      this.authTableData = data
       this.authCount = count
       this.listLoading = false
     },
@@ -352,14 +352,14 @@ export default {
 
     async loadACL(reload) {
       if (reload) {
-        this.aclParams._page = 1
+        this.aclParams.page = 1
       }
-      const data = await listMnesiaACL({ ...this.aclParams })
+      const respData = await listMnesiaACL({ ...this.aclParams })
       const {
-        items = [],
+        data = [],
         meta: { count = 0 },
-      } = data
-      this.aclTableData = items
+      } = respData
+      this.aclTableData = data
       this.aclCount = count
       this.listLoading = false
     },

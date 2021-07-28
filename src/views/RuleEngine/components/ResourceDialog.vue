@@ -154,7 +154,9 @@
     </el-form>
 
     <div slot="footer" class="dialog-align-footer">
-      <el-button size="small" @click="handleCache">{{ $t('Base.cancel') }}</el-button>
+      <el-button size="small" @click="handleCache">
+        {{ $t('Base.cancel') }}
+      </el-button>
       <el-button
         :loading="loadingButton === 'createButton'"
         class="dialog-primary-btn"

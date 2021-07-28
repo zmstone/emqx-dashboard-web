@@ -320,7 +320,7 @@ export default {
     zh: '动作',
     en: 'Actions',
   },
-  size_limit: {
+  sizelimit: {
     zh: '大小限制',
     en: 'Size Limit',
   },

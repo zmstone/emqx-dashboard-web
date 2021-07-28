@@ -80,8 +80,8 @@
             background
             layout="total, sizes, prev, pager, next"
             :page-sizes="[10, 50, 100, 500]"
-            :page-size.sync="clientidParams._limit"
-            :current-page.sync="clientidParams._page"
+            :page-size.sync="clientidParams.limit"
+            :current-page.sync="clientidParams.page"
             :total="clientidCount"
             @size-change="handleSizeChange('clientid')"
             @current-change="handleCurrentPageChange('clientid')"
@@ -109,8 +109,8 @@
             background
             layout="total, sizes, prev, pager, next"
             :page-sizes="[10, 50, 100, 500]"
-            :page-size.sync="usernameParams._limit"
-            :current-page.sync="usernameParams._page"
+            :page-size.sync="usernameParams.limit"
+            :current-page.sync="usernameParams.page"
             :total="usernameCount"
             @size-change="handleSizeChange('username')"
             @current-change="handleCurrentPageChange('username')"
@@ -184,12 +184,12 @@ export default {
       clientidCount: 0,
       usernameCount: 0,
       clientidParams: {
-        _limit: 10,
-        _page: 1,
+        limit: 10,
+        page: 1,
       },
       usernameParams: {
-        _limit: 10,
-        _page: 1,
+        limit: 10,
+        page: 1,
       },
       idListLoading: false,
       usernameListLoading: false,
@@ -226,23 +226,23 @@ export default {
     },
     async loadClinetIdData() {
       this.idListLoading = true
-      const data = await loadAuth('clientid', { ...this.clientidParams })
+      const respData = await loadAuth('clientid', { ...this.clientidParams })
       const {
-        items = [],
+        data = [],
         meta: { count = 0 },
-      } = data
-      this.clientidTableData = items
+      } = respData
+      this.clientidTableData = data
       this.clientidCount = count
       this.idListLoading = false
     },
     async loadUsernameData() {
       this.nameListLoading = true
-      const data = await loadAuth('username', { ...this.usernameParams })
+      const respData = await loadAuth('username', { ...this.usernameParams })
       const {
-        items = [],
+        data = [],
         meta: { count = 0 },
-      } = data
-      this.usernameTableData = items
+      } = respData
+      this.usernameTableData = data
       this.usernameCount = count
       this.nameListLoading = false
     },

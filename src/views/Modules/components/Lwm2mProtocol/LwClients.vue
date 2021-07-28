@@ -19,7 +19,7 @@
         </div>
       </div>
     </page-header>
-    <lw-client-details v-if="$route.query.imei" :nodeName="nodeName"></lw-client-details>
+    <lw-client-details v-if="$route.query.imei" :node-name="nodeName"></lw-client-details>
     <el-card shadow="never" v-else class="emq-list-card">
       <div class="lw-clients-header">
         <el-col :span="8" :offset="16">

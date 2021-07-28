@@ -13,9 +13,9 @@
       </div>
 
       <div class="page-header-top-start oper-button">
-        <el-button type="info" size="small" @click="toReadMore(moduleData.type)">{{
-          $t('Modules.readMore')
-        }}</el-button>
+        <el-button type="info" size="small" @click="toReadMore(moduleData.type)">
+          {{ $t('Modules.readMore') }}
+        </el-button>
         <el-button type="danger" size="small" v-if="oper === 'edit'" @click="deleteModule">
           {{ $t('Base.delete') }}
         </el-button>
@@ -65,7 +65,7 @@
                             ref="arrayEditor"
                             v-model="record.config[item.key]"
                             :data="item.oneObjOfArray"
-                            :isDadRequired="rules.config[item.key].length > 0"
+                            :is-dad-required="rules.config[item.key].length > 0"
                             @updateValidate="updateValidate"
                           ></array-editor>
                         </template>
@@ -74,7 +74,7 @@
                             v-model="record.config[item.key]"
                             v-bind="item.bindAttributes"
                             class="reset-width"
-                            :extraConfigs="item.extraConfigs"
+                            :extra-configs="item.extraConfigs"
                             @updateConfig="addConfigAccordingType"
                           >
                           </config-select>
@@ -166,11 +166,13 @@
             <div class="emq-title listener-title">
               {{ $t('Modules.listener') }}
             </div>
-            <Listeners v-model="record.config['listeners']" :listenerData="listener"> </Listeners>
+            <Listeners v-model="record.config['listeners']" :listener-data="listener"> </Listeners>
           </div>
 
           <div class="button-group__center" v-if="configList.length || oper === 'add'">
-            <el-button size="small" @click="exitDetail(true)">{{ $t('Base.cancel') }}</el-button>
+            <el-button size="small" @click="exitDetail(true)">
+              {{ $t('Base.cancel') }}
+            </el-button>
             <el-button
               :loading="buttonLoading"
               class="dialog-primary-btn"

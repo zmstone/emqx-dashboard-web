@@ -43,10 +43,12 @@
                   class="topic-qos-radio"
                   size="mini"
                 >
-                  <el-radio-button label="all">{{ $t('Plugins.all') }}</el-radio-button>
-                  <el-radio-button label="qos0">QoS 0</el-radio-button>
-                  <el-radio-button label="qos1">QoS 1</el-radio-button>
-                  <el-radio-button label="qos2">QoS 2</el-radio-button>
+                  <el-radio-button label="all">
+                    {{ $t('Plugins.all') }}
+                  </el-radio-button>
+                  <el-radio-button label="qos0"> QoS 0 </el-radio-button>
+                  <el-radio-button label="qos1"> QoS 1 </el-radio-button>
+                  <el-radio-button label="qos2"> QoS 2 </el-radio-button>
                 </el-radio-group>
               </div>
               <el-row class="expand-body" :gutter="20">
@@ -138,10 +140,12 @@
       </el-form>
 
       <div slot="footer" class="dialog-align-footer">
-        <el-button plain size="small" @click="handleClose">{{ $t('Base.cancel') }}</el-button>
-        <el-button type="primary" size="small" @click="handleAdd">{{
-          $t('Base.confirm')
-        }}</el-button>
+        <el-button plain size="small" @click="handleClose">
+          {{ $t('Base.cancel') }}
+        </el-button>
+        <el-button type="primary" size="small" @click="handleAdd">
+          {{ $t('Base.confirm') }}
+        </el-button>
       </div>
     </el-dialog>
   </div>

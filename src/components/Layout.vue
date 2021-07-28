@@ -25,8 +25,9 @@
                 <el-menu-item
                   :key="topLvRoute.path + '/' + route.path"
                   :index="topLvRoute.path + '/' + route.path"
-                  >{{ $t(`components.${route.path}`) }}</el-menu-item
                 >
+                  {{ $t(`components.${route.path}`) }}
+                </el-menu-item>
               </template>
             </el-menu>
           </el-header>

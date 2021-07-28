@@ -3,18 +3,20 @@
     <el-collapse-transition v-if="bigChartItem.text">
       <div class="big-chart">
         <el-card shadow="never" class="big-card">
-          <div class="card-title">{{ bigChartItem.text }}</div>
+          <div class="card-title">
+            {{ bigChartItem.text }}
+          </div>
           <span class="shrink-icon" @click="bigChartItem = {}"></span>
           <polyline-chart
             ref="bigChart"
             chart-id="big-polyline"
             :y-title="metricTitles"
             :chart-data="metricLog[bigChartItem.value]"
-            :chartColors="chartColorList[bigChartItem.value]"
+            :chart-colors="chartColorList[bigChartItem.value]"
             height="420px"
-            gridRight="1.5%"
-            gridLeft="1%"
-            legendBottom="10px"
+            grid-right="1.5%"
+            grid-left="1%"
+            legend-bottom="10px"
           ></polyline-chart>
         </el-card>
       </div>
@@ -24,13 +26,15 @@
         <template v-if="item !== bigChartItem">
           <el-col :span="8">
             <el-card shadow="never" class="polyline-card">
-              <div class="card-title">{{ item.text }}</div>
+              <div class="card-title">
+                {{ item.text }}
+              </div>
               <span class="enlarge-icon" @click="bigChartItem = item"></span>
               <polyline-chart
                 :chart-id="`${item.value}-polyline`"
                 :y-title="metricTitles"
                 :chart-data="metricLog[item.value]"
-                :chartColors="chartColorList[item.value]"
+                :chart-colors="chartColorList[item.value]"
               ></polyline-chart>
             </el-card>
           </el-col>

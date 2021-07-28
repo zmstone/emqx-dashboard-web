@@ -15,7 +15,7 @@
           v-if="settingType === item.name && item.configs"
           :ref="item.name"
           oper="edit"
-          :editConfig="item.configs"
+          :edit-config="item.configs"
           :btn-loading="saveLoading"
           from="zone"
           v-model="disabled"

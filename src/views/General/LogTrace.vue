@@ -27,8 +27,8 @@
           <el-table-column prop="level" :label="$t('LogTrace.level')"></el-table-column>
           <el-table-column width="250px">
             <template slot-scope="{ row }">
-              <el-button type="dashed" size="mini" @click="handleDialogOpen('view', row)"
-                >{{ $t('Overview.view') }}
+              <el-button type="dashed" size="mini" @click="handleDialogOpen('view', row)">
+                {{ $t('Overview.view') }}
               </el-button>
               <el-button type="dashed" size="mini" @click="handleDownload(row)">
                 {{ $t('Backup.download') }}
@@ -66,7 +66,8 @@
                 v-model="record.type"
                 :field="{ options: typeOptions }"
                 :disabled="accessType !== 'create'"
-                >>
+              >
+                >
               </emq-select>
             </el-form-item>
           </el-col>
@@ -94,9 +95,9 @@
       </el-form>
 
       <div v-if="accessType === 'create'" slot="footer" class="dialog-align-footer">
-        <el-button plain size="small" @click="dialogVisible = false">{{
-          $t('Base.cancel')
-        }}</el-button>
+        <el-button plain size="small" @click="dialogVisible = false">
+          {{ $t('Base.cancel') }}
+        </el-button>
         <el-button
           :loading="btnLoading === 'createBtn'"
           type="primary"

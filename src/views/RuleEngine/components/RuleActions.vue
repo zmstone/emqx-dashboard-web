@@ -3,7 +3,9 @@
     <div v-for="(item, i) in rawValue" :key="i" class="action-item">
       <div class="action-item-head">
         <div class="action-item-type">
-          <div class="title">{{ $t('RuleEngine.actionType') }}</div>
+          <div class="title">
+            {{ $t('RuleEngine.actionType') }}
+          </div>
           <div class="desc">{{ (item._config || {}).title }} ({{ item.name }})</div>
         </div>
         <div v-if="!disabled" class="action-item-btn">
@@ -59,8 +61,12 @@
           :key="itemValueIndex"
           class="action-item-field"
         >
-          <div class="title">{{ itemValue.label }}</div>
-          <div class="value">{{ itemValue.value }}</div>
+          <div class="title">
+            {{ itemValue.label }}
+          </div>
+          <div class="value">
+            {{ itemValue.value }}
+          </div>
         </div>
       </div>
 
@@ -89,7 +95,9 @@
         <div v-for="(fallback, k) in item.fallbacks" :key="k" class="action-item error-action">
           <div class="action-item-head">
             <div class="action-item-type">
-              <div class="title">{{ $t('RuleEngine.actionType') }}</div>
+              <div class="title">
+                {{ $t('RuleEngine.actionType') }}
+              </div>
               <div class="desc">{{ (fallback._config || {}).title }} ({{ fallback.name }})</div>
             </div>
             <div v-if="!disabled" class="action-item-btn">
@@ -140,8 +148,12 @@
               :key="fallbackValueIndex"
               class="action-item-field"
             >
-              <div class="title">{{ fallbackValue.label }}</div>
-              <div class="value">{{ fallbackValue.value }}</div>
+              <div class="title">
+                {{ fallbackValue.label }}
+              </div>
+              <div class="value">
+                {{ fallbackValue.value }}
+              </div>
             </div>
           </div>
 
@@ -285,7 +297,7 @@
                     v-model="record.params[item.key]"
                     v-bind="item.bindAttributes"
                     class="reset-width"
-                    :extraConfigs="item.extraConfigs"
+                    :extra-configs="item.extraConfigs"
                     @updateConfig="addConfigAccordingType"
                   >
                   </config-select>

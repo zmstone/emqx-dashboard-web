@@ -64,9 +64,9 @@
         </el-col>
 
         <el-col :span="8" class="checkbox-area">
-          <el-checkbox v-model="connection.clean">Clean Session</el-checkbox>
+          <el-checkbox v-model="connection.clean"> Clean Session </el-checkbox>
 
-          <el-checkbox v-model="connection.ssl" @change="protocolsChange">TLS</el-checkbox>
+          <el-checkbox v-model="connection.ssl" @change="protocolsChange"> TLS </el-checkbox>
         </el-col>
       </el-row>
     </el-form>
@@ -136,8 +136,9 @@
             plain
             @click="unSubscribe(row)"
             :disabled="!compareConnStatus('MCONNECTED')"
-            >{{ $t('Base.cancel') }}</el-button
           >
+            {{ $t('Base.cancel') }}
+          </el-button>
         </template>
       </el-table-column>
     </el-table>
@@ -171,7 +172,7 @@
       </el-form-item>
 
       <el-form-item>
-        <el-checkbox v-model="messageRecord.retain">Retain</el-checkbox>
+        <el-checkbox v-model="messageRecord.retain"> Retain </el-checkbox>
         <el-button type="primary" size="small" @click="publish">
           {{ $t('Tools.publish') }}
         </el-button>

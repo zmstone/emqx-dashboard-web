@@ -7,17 +7,15 @@
     </div>
 
     <!-- <breadcrumb></breadcrumb> -->
-    <div class="header-title">{{ $t(`components.${firstPath}`) }}</div>
+    <div class="header-title">
+      {{ $t(`components.${firstPath}`) }}
+    </div>
 
     <div class="pull-right">
       <el-tooltip effect="dark" :content="alertText" placement="bottom" :visible-arrow="false">
         <div class="alert-info func-item">
           <el-badge :is-dot="!!alertCount">
-            <router-link
-              to="/alarm"
-              class="iconx icon-alarm"
-              @click="clearAlert"
-            ></router-link>
+            <router-link to="/alarm" class="iconx icon-alarm" @click="clearAlert"></router-link>
           </el-badge>
         </div>
       </el-tooltip>
@@ -26,12 +24,12 @@
         <div class="user-info func-item">
           <i class="iconx icon-globe"></i>
           <el-dropdown-menu slot="dropdown">
-            <el-dropdown-item command="en" :class="{ active: language === 'en' }"
-              >English</el-dropdown-item
-            >
-            <el-dropdown-item command="zh" :class="{ active: language === 'zh' }"
-              >中文</el-dropdown-item
-            >
+            <el-dropdown-item command="en" :class="{ active: language === 'en' }">
+              English
+            </el-dropdown-item>
+            <el-dropdown-item command="zh" :class="{ active: language === 'zh' }">
+              中文
+            </el-dropdown-item>
           </el-dropdown-menu>
         </div>
       </el-dropdown>
@@ -40,20 +38,20 @@
         <div class="user-info func-item">
           <span>{{ username }}</span>
           <el-dropdown-menu slot="dropdown">
-            <el-dropdown-item command="general/application">{{
-              $t('components.applicationManagement')
-            }}</el-dropdown-item>
-            <el-dropdown-item command="general/users">{{
-              $t('components.usersManagement')
-            }}</el-dropdown-item>
-            <el-dropdown-item divided command="login">{{
-              $t('components.logOut')
-            }}</el-dropdown-item>
+            <el-dropdown-item command="general/application">
+              {{ $t('components.applicationManagement') }}
+            </el-dropdown-item>
+            <el-dropdown-item command="general/users">
+              {{ $t('components.usersManagement') }}
+            </el-dropdown-item>
+            <el-dropdown-item divided command="login">
+              {{ $t('components.logOut') }}
+            </el-dropdown-item>
           </el-dropdown-menu>
         </div>
       </el-dropdown>
 
-      <el-button class="go-link" @click="gotoCloud">EMQ X Cloud ➝</el-button>
+      <el-button class="go-link" @click="gotoCloud"> EMQ X Cloud ➝ </el-button>
     </div>
   </div>
 </template>

@@ -16,9 +16,9 @@
     <el-table :data="tableData">
       <el-table-column prop="name" :label="$t('Schemas.name')">
         <template slot-scope="{ row }">
-          <router-link :to="{ path: '/ruleengine/schemas/detail', query: { id: row.name } }">{{
-            row.name
-          }}</router-link>
+          <router-link :to="{ path: '/ruleengine/schemas/detail', query: { id: row.name } }">
+            {{ row.name }}
+          </router-link>
         </template>
       </el-table-column>
       <el-table-column

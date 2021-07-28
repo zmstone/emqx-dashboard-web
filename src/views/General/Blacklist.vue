@@ -20,8 +20,8 @@
         </el-table-column>
         <el-table-column prop="oper" :label="$t('Base.operation')">
           <template slot-scope="{ row }">
-            <el-button plain type="danger" size="mini" @click="deleteConfirm(row)"
-              >{{ $t('Base.delete') }}
+            <el-button plain type="danger" size="mini" @click="deleteConfirm(row)">
+              {{ $t('Base.delete') }}
             </el-button>
           </template>
         </el-table-column>
@@ -33,8 +33,8 @@
           background
           layout="total, sizes, prev, pager, next"
           :page-sizes="[20, 50, 100, 500]"
-          :page-size.sync="params._limit"
-          :current-page.sync="params._page"
+          :page-size.sync="params.limit"
+          :current-page.sync="params.page"
           :total="count"
           @size-change="handleSizeChange"
           @current-change="handleCurrentPageChange"
@@ -81,8 +81,12 @@
       </el-form>
 
       <div slot="footer" class="dialog-align-footer">
-        <el-button plain size="small" @click="closeDialog">{{ $t('Base.cancel') }}</el-button>
-        <el-button type="primary" size="small" @click="save">{{ $t('Base.confirm') }}</el-button>
+        <el-button plain size="small" @click="closeDialog">
+          {{ $t('Base.cancel') }}
+        </el-button>
+        <el-button type="primary" size="small" @click="save">
+          {{ $t('Base.confirm') }}
+        </el-button>
       </div>
     </el-dialog>
   </div>
@@ -101,8 +105,8 @@ export default {
       dialogVisible: false,
       tableData: [],
       params: {
-        _page: 1,
-        _limit: 20,
+        page: 1,
+        limit: 20,
       },
       count: 0,
       asOptions: [
@@ -128,14 +132,14 @@ export default {
     },
     async listBlackList(reload, params = {}) {
       if (reload) {
-        this.params._page = 1
+        this.params.page = 1
       }
-      const data = await loadBlacklist({ ...this.params, ...params })
+      const respData = await loadBlacklist({ ...this.params, ...params })
       const {
-        items = [],
+        data = [],
         meta: { count = 0 },
-      } = data
-      this.tableData = items
+      } = respData
+      this.tableData = data
       this.count = count
     },
     handleSizeChange() {

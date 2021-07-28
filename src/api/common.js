@@ -47,30 +47,12 @@ export async function loadNodes() {
 }
 
 //Alarms
-export async function loadAlarm() {
-  const list = await http.get('/alarms/activated')
-  const data = []
-  list.forEach((item) => {
-    const { node, alarms } = item
-    alarms.forEach(($) => {
-      $.node = node
-      data.push($)
-    })
-  })
-  return data
+export function loadAlarm() {
+  return http.get('/alarms', { params: { activated: true } })
 }
 
-export async function loadHistoryAlarm() {
-  const list = await http.get('/alarms/deactivated')
-  const data = []
-  list.forEach((item) => {
-    const { node, alarms } = item
-    alarms.forEach(($) => {
-      $.node = node
-      data.push($)
-    })
-  })
-  return data
+export function loadHistoryAlarm() {
+  return http.get('/alarms', { params: { activated: false } })
 }
 
 //cluster

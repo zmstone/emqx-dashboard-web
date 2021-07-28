@@ -9,7 +9,7 @@
       :btn-loading="saveLoading"
       v-model="disabled"
       v-bind="allOptions"
-      labelWidth="260px"
+      label-width="260px"
       @update="handleUpdate(...arguments, 'emqx')"
     >
     </config-form>

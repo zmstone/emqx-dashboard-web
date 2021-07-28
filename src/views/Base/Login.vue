@@ -43,12 +43,14 @@
               ></el-input>
             </el-form-item>
 
-            <el-checkbox v-model="record.remember">{{ $t('Base.remember') }}</el-checkbox>
+            <el-checkbox v-model="record.remember">
+              {{ $t('Base.remember') }}
+            </el-checkbox>
 
             <el-form-item class="oper-wrapper" label="">
-              <el-button class="sub-btn" type="primary" @click="nativeLogin" :loading="logining">{{
-                $t('Base.signIn')
-              }}</el-button>
+              <el-button class="sub-btn" type="primary" @click="nativeLogin" :loading="logining">
+                {{ $t('Base.signIn') }}
+              </el-button>
             </el-form-item>
           </el-form>
         </div>

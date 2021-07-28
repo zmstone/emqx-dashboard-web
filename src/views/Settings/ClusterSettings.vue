@@ -1,6 +1,8 @@
 <template>
   <el-card shadow="never" class="cluster-settings emq-list-card">
-    <div class="emq-title">{{ $t('Settings.clusterInfo') }}</div>
+    <div class="emq-title">
+      {{ $t('Settings.clusterInfo') }}
+    </div>
     <el-row :gutter="20">
       <el-form
         ref="record"

@@ -57,12 +57,12 @@
 
       <config-detail
         :oper="oper"
-        :editConfig="editConfig"
+        :edit-config="editConfig"
         from="listener"
-        :listenerType="transport_type"
+        :listener-type="transport_type"
         :btn-loading="saveLoading"
-        labelWidth="170px"
-        :listenerZoneOptions="listenerZoneOptions"
+        label-width="170px"
+        :listener-zone-options="listenerZoneOptions"
         v-model="disabled"
         @update="handleUpdate(...arguments)"
       >

@@ -19,8 +19,8 @@
         v-if="count > 0"
         layout="total, sizes, prev, pager, next"
         :page-sizes="[20, 50, 100, 500]"
-        :page-size.sync="params._limit"
-        :current-page.sync="params._page"
+        :page-size.sync="params.limit"
+        :current-page.sync="params.page"
         :total="count"
         @size-change="handleSizeChange"
         @current-change="handleCurrentPageChange"
@@ -41,8 +41,8 @@ export default {
       tableData: [],
       searchValue: '',
       params: {
-        _page: 1,
-        _limit: 20,
+        page: 1,
+        limit: 20,
       },
       count: 0,
     }
@@ -59,7 +59,7 @@ export default {
         this.loadTopics()
         return
       }
-      this.params._page = 1
+      this.params.page = 1
       this.count = 0
       this.tableData = await searchTopics(topic)
     },
@@ -74,14 +74,14 @@ export default {
     },
     async loadTopics(reload, params = {}) {
       if (reload) {
-        this.params._page = 1
+        this.params.page = 1
       }
-      const data = await listTopics({ ...this.params, ...params })
+      const respData = await listTopics({ ...this.params, ...params })
       const {
-        items = [],
+        data = [],
         meta: { count = 0 },
-      } = data
-      this.tableData = items
+      } = respData
+      this.tableData = data
       this.count = count
     },
   },

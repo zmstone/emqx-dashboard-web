@@ -105,9 +105,12 @@ export default {
       return moment(timestamp).format('YYYY-MM-DD HH:mm:ss')
     },
     async loadData() {
-      this.currentAlarmData = await loadAlarm().catch(() => {})
+      // TODO pagination
+      const currentAlarmDataResp = await loadAlarm().catch(() => {})
+      this.currentAlarmData = currentAlarmDataResp.data
       this.$store.dispatch('SET_ALERT_COUNT', this.currentAlarmData.length || 0)
-      this.historyAlarmData = await loadHistoryAlarm()
+      const historyAlarmDataResp = await loadHistoryAlarm().catch(() => {})
+      this.historyAlarmData = historyAlarmDataResp.data
     },
 
     getStateText(state) {

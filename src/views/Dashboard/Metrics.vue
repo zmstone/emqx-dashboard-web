@@ -3,7 +3,9 @@
     <div class="section-header">
       <div>
         <span>{{ tl('dataList') }}</span>
-        <div class="section-desc">{{ tl('packetStatisticsOfNodes') }}</div>
+        <div class="section-desc">
+          {{ tl('packetStatisticsOfNodes') }}
+        </div>
       </div>
       <div class="section-addition">
         <emq-select

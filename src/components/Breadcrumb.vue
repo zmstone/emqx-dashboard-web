@@ -46,7 +46,7 @@ export default {
       return path ? '/' + path : '/'
     },
     getBreadcrumb() {
-      const { path} = this.$route
+      const { path } = this.$route
       this.pathList = path.split('/').slice(1)
     },
     getAlernateKeyFromBase(oper) {

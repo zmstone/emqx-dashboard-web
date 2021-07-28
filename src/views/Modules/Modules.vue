@@ -41,7 +41,9 @@
               <div class="left-box">
                 <img :src="item.img" alt="module-logo" class="item-img" />
                 <div class="item-content">
-                  <div class="item-title">{{ item.title[lang] }}</div>
+                  <div class="item-title">
+                    {{ item.title[lang] }}
+                  </div>
                   <div class="item-des">
                     {{ item.description[lang] }}
                   </div>
@@ -54,18 +56,20 @@
                     size="small"
                     v-if="item.enabled"
                     @click.stop="updataModule(item, false)"
-                    >{{ $t('Modules.stop') }}</el-button
                   >
+                    {{ $t('Modules.stop') }}
+                  </el-button>
                   <el-button
                     type="primary"
                     size="small"
                     v-else
                     @click.stop="updataModule(item, true)"
-                    >{{ $t('Modules.start') }}</el-button
                   >
-                  <el-button class="know-more" size="small" @click.stop="toEditModule(item)">{{
-                    $t('Modules.moduleEdit')
-                  }}</el-button>
+                    {{ $t('Modules.start') }}
+                  </el-button>
+                  <el-button class="know-more" size="small" @click.stop="toEditModule(item)">
+                    {{ $t('Modules.moduleEdit') }}
+                  </el-button>
                 </div>
               </div>
             </div>
@@ -73,8 +77,12 @@
         </el-col>
       </el-row>
       <el-card shadow="never" v-else class="null-modules">
-        <p v-if="list.length">{{ $t('Modules.listNull') }}</p>
-        <p v-else>{{ $t('Modules.noData') }}</p>
+        <p v-if="list.length">
+          {{ $t('Modules.listNull') }}
+        </p>
+        <p v-else>
+          {{ $t('Modules.noData') }}
+        </p>
       </el-card>
     </div>
   </div>

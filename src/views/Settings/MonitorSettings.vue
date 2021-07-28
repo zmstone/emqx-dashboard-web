@@ -14,7 +14,7 @@
           :rules="item.rules"
           :btn-loading="saveLoading"
           v-model="disabled"
-          labelWidth="195px"
+          label-width="195px"
           @update="handleUpdate(...arguments, item.type)"
         >
         </config-form>

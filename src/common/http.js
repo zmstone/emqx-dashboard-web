@@ -64,7 +64,7 @@ Object.assign(axios.defaults, {
     'Content-Type': 'application/json',
     'Cache-Control': 'no-cache',
   },
-  baseURL: '/api/v4',
+  baseURL: '/api/v5',
   // timeout: store.state.httpTimeout,
   auth: {},
 })
@@ -94,6 +94,7 @@ axios.interceptors.request.use(
 )
 
 function handleError(error) {
+  // TODO 根据后端返回的业务错误码，提供错误信息
   clearTimeout(timer)
   timer = setTimeout(() => {
     NProgress.done()
@@ -101,7 +102,6 @@ function handleError(error) {
   if (!error.response) {
     return Promise.reject(error.message)
   }
-
   const {
     selfError,
     response: {
@@ -136,6 +136,9 @@ function handleError(error) {
 }
 
 axios.interceptors.response.use((response) => {
+  return response.data
+  // TODO 4.x 后端报错 http status 一直都是 200，因此要在此处处理错误
+  /**
   let res = response.data
   if (response.config.url.includes('/data/file')) {
     const { file, filename, data } = response.data
@@ -181,6 +184,7 @@ axios.interceptors.response.use((response) => {
     })
   }
   return res.data || {}
+   */
 }, handleError)
 
 export default axios

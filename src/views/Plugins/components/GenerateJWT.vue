@@ -32,7 +32,7 @@
               </el-row>
 
               <el-form-item>
-                <el-checkbox v-model="payloadVisible" size="small">Payload</el-checkbox>
+                <el-checkbox v-model="payloadVisible" size="small"> Payload </el-checkbox>
               </el-form-item>
 
               <template v-if="payloadVisible">
